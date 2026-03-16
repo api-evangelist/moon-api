@@ -1,31 +1,30 @@
+aid: moon-api
 name: Moon-API
 description: >-
-  Welcome to Moon-API.com, your one-stop destination for all things lunar. Our
-  APIs offer a wealth of information about the moon and its intriguing phases.
-  Whether you're a developer, an astronomer, or simply someone who's fascinated
-  by the moon, our APIs are designed to provide you with accurate and current
-  lunar data.  https://moon-api.com/
-image: >-
-  https://kinlane-productions2.s3.amazonaws.com/apis-json-icons/moon-apicom-real-time-moon-data-explore-the-moons-phases-and-much-more.png
-url: >-
-  https://example.com/apis/moon-apicom-real-time-moon-data-explore-the-moons-phases-and-much-more.yml
-created: 2024/3/30
-modified: 2024/3/30
-specificationVersion: '0.16'
+  Moon-API.com provides real-time lunar data including moon phases, moonrise/moonset times,
+  and other lunar information for developers, astronomers, and moon enthusiasts.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://moon-api.com/
+created: '2024-03-30'
+modified: '2026-03-16'
+specificationVersion: '0.19'
 tags:
-  - Bookmarks
+  - Moon
+  - Lunar
+  - Astronomy
+  - Space
 apis:
-  - name: >-
-      Moon-API.com | Real-time Moon Data - Explore the Moon's Phases and Much
-      More
+  - aid: moon-api:moon-api
+    name: Moon API
     description: >-
-      Welcome to Moon-API.com, your one-stop destination for all things lunar.
-      Our APIs offer a wealth of information about the moon and its intriguing
-      phases. Whether you're a developer, an astronomer, or simply someone who's
-      fascinated by the moon, our APIs are designed to provide you with accurate
-      and current lunar data.  https://moon-api.com/
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      Real-time moon data API providing information about moon phases, moonrise/moonset times,
+      and other lunar data for any location and date.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://moon-api.com/
+    properties:
+      - type: Documentation
+        url: https://moon-api.com/
 maintainers:
-  - FN: API Evangelist
-    email: info@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
