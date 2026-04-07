@@ -10,9 +10,9 @@ created: '2024-03-30'
 modified: '2026-03-16'
 specificationVersion: '0.19'
 tags:
-  - Moon
-  - Lunar
   - Astronomy
+  - Lunar
+  - Moon
   - Space
 apis:
   - aid: moon-api:moon-api
