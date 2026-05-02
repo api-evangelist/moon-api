@@ -1,0 +1,916 @@
+openapi: 3.0.0
+info:
+  title: Moon-API.com
+  description: API for retrieving detailed moon phase data, sun data, calendars, and astronomical information
+  version: 2.0.0
+  contact:
+    name: Moon-API.com
+    url: https://moon-api.com
+
+servers:
+  - url: https://moon-phase.p.rapidapi.com
+    description: Production server (via RapidAPI)
+
+security:
+  - RapidAPIKey: []
+
+components:
+  securitySchemes:
+    RapidAPIKey:
+      type: apiKey
+      name: x-rapidapi-key
+      in: header
+      description: RapidAPI authentication key
+  parameters:
+    latitudeParam:
+      name: lat
+      in: query
+      description: Latitude coordinate (-90 to 90). Optional, defaults to 51.5074 (London, UK)
+      required: false
+      schema:
+        type: number
+        minimum: -90
+        maximum: 90
+        default: 51.5074
+    longitudeParam:
+      name: lon
+      in: query
+      description: Longitude coordinate (-180 to 180). Optional, defaults to -0.1278 (London, UK - west is negative)
+      required: false
+      schema:
+        type: number
+        minimum: -180
+        maximum: 180
+        default: -0.1278
+    timestampParam:
+      name: timestamp
+      in: query
+      description: Unix timestamp (optional, defaults to current time)
+      required: false
+      schema:
+        type: integer
+    planParam:
+      name: plan
+      in: query
+      description: "Plan type - FREE, BASIC, PRO, ULTRA, MEGA (default: MEGA)"
+      required: false
+      schema:
+        type: string
+        enum: [FREE, BASIC, PRO, ULTRA, MEGA]
+        default: MEGA
+  schemas:
+    MoonSunResponse:
+      type: object
+      properties:
+        timestamp:
+          type: integer
+          example: 1768327440
+        datestamp:
+          type: string
+          example: "Tue, 13 Jan 2026 18:04:00 +0000"
+        plan:
+          type: string
+          example: "MEGA"
+        next_eclipse:
+          type: object
+          description: Present for ULTRA and MEGA plans. Next upcoming eclipse with countdown.
+          properties:
+            timestamp:
+              type: integer
+              example: 1771329600
+            datestamp:
+              type: string
+              example: "Tue, 17 Feb 2026 12:00:00 +0000"
+            type:
+              type: string
+              example: "Annular Solar Eclipse"
+            visibility_regions:
+              type: string
+              example: "s Argentina & Chile, s Africa, Antarctica"
+            category:
+              type: string
+              enum: [solar, lunar]
+              example: "solar"
+            countdown:
+              type: object
+              properties:
+                days:
+                  type: integer
+                  example: 28
+                hours:
+                  type: integer
+                  example: 18
+                minutes:
+                  type: integer
+                  example: 51
+                seconds:
+                  type: integer
+                  example: 22
+                total_seconds:
+                  type: integer
+                  example: 2487082
+        sun:
+          type: object
+          properties:
+            sunrise:
+              type: integer
+              example: 1768291282
+            sunrise_timestamp:
+              type: string
+              example: "08:01"
+            sunset:
+              type: integer
+              example: 1768321044
+            sunset_timestamp:
+              type: string
+              example: "16:17"
+            solar_noon:
+              type: string
+              example: "12:09"
+            day_length:
+              type: string
+              example: "08:16"
+            position:
+              type: object
+              properties:
+                altitude:
+                  type: number
+                  example: -15.787896
+                azimuth:
+                  type: number
+                  example: 255.330169
+                distance:
+                  type: number
+                  example: 147145019639.96698
+            next_solar_eclipse:
+              type: object
+              properties:
+                timestamp:
+                  type: integer
+                  example: 1771329600
+                datestamp:
+                  type: string
+                  example: "Tue, 17 Feb 2026 12:00:00 +0000"
+                type:
+                  type: string
+                  example: "Annular Solar Eclipse"
+                visibility_regions:
+                  type: string
+                  example: "s Argentina & Chile, s Africa, Antarctica ; [Annular: Antarctica]"
+            next_transit:
+              type: object
+              properties:
+                timestamp:
+                  type: integer
+                  example: 1983944460
+                datestamp:
+                  type: string
+                  example: "Sat, 13 Nov 2032 07:41:00 +0000"
+                planet:
+                  type: string
+                  example: "Mercury"
+                type:
+                  type: string
+                  example: "Mercury Transit"
+                visibility_regions:
+                  type: string
+                  example: "Americas, Europe, Africa, Asia, Australia (visible where Sun is above horizon)"
+        moon:
+          type: object
+          properties:
+            phase:
+              type: number
+              example: 0.8294482328
+            phase_name:
+              type: string
+              example: "Waning crescent"
+            major_phase:
+              type: string
+              example: "New Moon"
+            stage:
+              type: string
+              example: "waning"
+            illumination:
+              type: string
+              example: "22%"
+            age_days:
+              type: integer
+              example: 24
+            lunar_cycle:
+              type: string
+              example: "22.49%"
+            emoji:
+              type: string
+              example: "🌒"
+            zodiac:
+              type: object
+              properties:
+                sun_sign:
+                  type: string
+                  example: "Capricorn"
+                moon_sign:
+                  type: string
+                  example: "Scorpio"
+            moonrise:
+              type: string
+              example: "02:27"
+            moonrise_timestamp:
+              type: integer
+              example: 1768184871
+            moonset:
+              type: string
+              example: "11:17"
+            moonset_timestamp:
+              type: integer
+              example: 1768216634
+            detailed:
+              type: object
+              properties:
+                position:
+                  type: object
+                  properties:
+                    altitude:
+                      type: number
+                      example: -55.204021
+                    azimuth:
+                      type: number
+                      example: 308.80069
+                    distance:
+                      type: number
+                      example: 405395288.669185
+                    parallactic_angle:
+                      type: number
+                      example: 29.033486
+                    phase_angle:
+                      type: number
+                      example: 123.39
+                visibility:
+                  type: object
+                  properties:
+                    visible_hours:
+                      type: integer
+                      example: 0
+                    best_viewing_time:
+                      type: string
+                      example: "02:27"
+                    visibility_rating:
+                      type: string
+                      example: "Poor"
+                    illumination:
+                      type: string
+                      example: "22.49%"
+                    viewing_conditions:
+                      type: object
+                      properties:
+                        phase_quality:
+                          type: string
+                          example: "Good for observing surface detail along terminator line"
+                        recommended_equipment:
+                          type: object
+                          properties:
+                            filters:
+                              type: string
+                              example: "No filters needed"
+                            telescope:
+                              type: string
+                              example: "4-inch or larger recommended"
+                            best_magnification:
+                              type: string
+                              example: "High magnification (100-200x) for crater detail"
+                upcoming_phases:
+                  type: object
+                  properties:
+                    new_moon:
+                      type: object
+                      properties:
+                        last:
+                          type: object
+                          properties:
+                            timestamp:
+                              type: integer
+                            datestamp:
+                              type: string
+                            days_ago:
+                              type: integer
+                        next:
+                          type: object
+                          properties:
+                            timestamp:
+                              type: integer
+                            datestamp:
+                              type: string
+                            days_ahead:
+                              type: integer
+                    first_quarter:
+                      type: object
+                      properties:
+                        last:
+                          type: object
+                          properties:
+                            timestamp:
+                              type: integer
+                            datestamp:
+                              type: string
+                            days_ago:
+                              type: integer
+                        next:
+                          type: object
+                          properties:
+                            timestamp:
+                              type: integer
+                            datestamp:
+                              type: string
+                            days_ahead:
+                              type: integer
+                    full_moon:
+                      type: object
+                      properties:
+                        last:
+                          type: object
+                          properties:
+                            timestamp:
+                              type: integer
+                            datestamp:
+                              type: string
+                            days_ago:
+                              type: integer
+                            name:
+                              type: string
+                            description:
+                              type: string
+                        next:
+                          type: object
+                          properties:
+                            timestamp:
+                              type: integer
+                            datestamp:
+                              type: string
+                            days_ahead:
+                              type: integer
+                            name:
+                              type: string
+                            description:
+                              type: string
+                    last_quarter:
+                      type: object
+                      properties:
+                        last:
+                          type: object
+                          properties:
+                            timestamp:
+                              type: integer
+                            datestamp:
+                              type: string
+                            days_ago:
+                              type: integer
+                        next:
+                          type: object
+                          properties:
+                            timestamp:
+                              type: integer
+                            datestamp:
+                              type: string
+                            days_ahead:
+                              type: integer
+                illumination_details:
+                  type: object
+                  properties:
+                    percentage:
+                      type: number
+                      example: 22.49
+                    visible_fraction:
+                      type: number
+                      example: 0.2249
+                    phase_angle:
+                      type: number
+                      example: 123.39
+            events:
+              type: object
+              properties:
+                moonrise_visible:
+                  type: boolean
+                  example: true
+                moonset_visible:
+                  type: boolean
+                  example: true
+                optimal_viewing_period:
+                  type: object
+                  properties:
+                    start_time:
+                      type: string
+                      example: "02:27"
+                    end_time:
+                      type: string
+                      example: "11:17"
+                    duration_hours:
+                      type: integer
+                      example: 8
+                    viewing_quality:
+                      type: string
+                      example: "Good for crater observation along terminator"
+                    recommendations:
+                      type: array
+                      items:
+                        type: string
+                      example: ["Visible most of the night", "Good period for observing maria (dark areas) and mountain ranges", "Medium to high magnification recommended for detail"]
+            next_lunar_eclipse:
+              type: object
+              properties:
+                timestamp:
+                  type: integer
+                  example: 1772537640
+                datestamp:
+                  type: string
+                  example: "Tue, 03 Mar 2026 11:34:00 +0000"
+                  description: Maximum eclipse time
+                type:
+                  type: string
+                  example: "Total Lunar Eclipse"
+                visibility_regions:
+                  type: string
+                  example: "eastern Asia, Australia, Pacific, Americas"
+
+paths:
+  /basic:
+    get:
+      summary: Get basic moon phase information
+      description: Returns simplified moon phase data with phase name, stage, and days until next phases. Lat/lon are optional and default to London coordinates (51.5074, -0.1278). Backwards compatible.
+      parameters:
+        - $ref: '#/components/parameters/latitudeParam'
+        - $ref: '#/components/parameters/longitudeParam'
+        - $ref: '#/components/parameters/timestampParam'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  phase_name:
+                    type: string
+                    description: Current moon phase name
+                  stage:
+                    type: string
+                    enum: [waxing, waning, new, full]
+                    description: Moon stage (waxing = increasing, waning = decreasing)
+                  days_until_next_full_moon:
+                    type: integer
+                    description: Number of days until the next full moon
+                  days_until_next_new_moon:
+                    type: integer
+                    description: Number of days until the next new moon
+              example:
+                phase_name: "Waning gibbous"
+                stage: "waning"
+                illumination: "22%"
+                days_until_next_full_moon: 27
+                days_until_next_new_moon: 13
+        '400':
+          description: Bad request
+        '500':
+          description: Server error
+
+  /advanced:
+    get:
+      summary: Get detailed moon and sun data (MEGA plan)
+      description: Returns comprehensive astronomical data. Lat/lon are optional and default to London coordinates. Backwards compatible.
+      parameters:
+        - $ref: '#/components/parameters/latitudeParam'
+        - $ref: '#/components/parameters/longitudeParam'
+        - $ref: '#/components/parameters/timestampParam'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoonSunResponse'
+              example:
+                timestamp: 1768327440
+                datestamp: "Tue, 13 Jan 2026 18:04:00 +0000"
+                plan: "MEGA"
+                sun:
+                  sunrise: 1768291282
+                  sunrise_timestamp: "08:01"
+                  sunset: 1768321044
+                  sunset_timestamp: "16:17"
+                  solar_noon: "12:09"
+                  day_length: "08:16"
+                  position:
+                    altitude: -15.787896
+                    azimuth: 255.330169
+                    distance: 147145019639.96698
+                  next_solar_eclipse:
+                    timestamp: 1771329600
+                    datestamp: "Tue, 17 Feb 2026 12:00:00 +0000"
+                    type: "Annular Solar Eclipse"
+                    visibility_regions: "s Argentina & Chile, s Africa, Antarctica ; [Annular: Antarctica]"
+                moon:
+                  phase: 0.8294482328
+                  phase_name: "Waning crescent"
+                  major_phase: "New Moon"
+                  stage: "waning"
+                  illumination: "22%"
+                  age_days: 24
+                  lunar_cycle: "22.49%"
+                  emoji: "🌒"
+                  zodiac:
+                    sun_sign: "Capricorn"
+                    moon_sign: "Scorpio"
+                  moonrise: "02:27"
+                  moonrise_timestamp: 1768184871
+                  moonset: "11:17"
+                  moonset_timestamp: 1768216634
+                  detailed:
+                    position:
+                      altitude: -55.204021
+                      azimuth: 308.80069
+                      distance: 405395288.669185
+                      parallactic_angle: 29.033486
+                      phase_angle: 123.39
+                    visibility:
+                      visible_hours: 0
+                      best_viewing_time: "02:27"
+                      visibility_rating: "Poor"
+                      illumination: "22.49%"
+                      viewing_conditions:
+                        phase_quality: "Good for observing surface detail along terminator line"
+                        recommended_equipment:
+                          filters: "No filters needed"
+                          telescope: "4-inch or larger recommended"
+                          best_magnification: "High magnification (100-200x) for crater detail"
+                    upcoming_phases:
+                      new_moon:
+                        last:
+                          timestamp: 1766024400
+                          datestamp: "Wed, 07 Jan 2026 00:00:00 +0000"
+                          days_ago: 6
+                        next:
+                          timestamp: 1768732800
+                          datestamp: "Fri, 06 Feb 2026 00:00:00 +0000"
+                          days_ahead: 24
+                    illumination_details:
+                      percentage: 22.49
+                      visible_fraction: 0.2249
+                      phase_angle: 123.39
+        '400':
+          description: Bad request
+        '500':
+          description: Server error
+
+  /astrology:
+    get:
+      summary: Get astrology data (natal chart and planetary positions)
+      description: Returns natal chart data, planetary positions, house cusps, and astrological aspects. Lat/lon are optional and default to London coordinates.
+      parameters:
+        - $ref: '#/components/parameters/latitudeParam'
+        - $ref: '#/components/parameters/longitudeParam'
+        - $ref: '#/components/parameters/timestampParam'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  meta:
+                    type: object
+                    properties:
+                      timestamp:
+                        type: string
+                        example: "2026-01-14T09:39:27Z"
+                      location:
+                        type: object
+                        properties:
+                          lat:
+                            type: number
+                            example: 51.5074
+                          lon:
+                            type: number
+                            example: -0.1278
+                          timezone:
+                            type: string
+                            example: "Europe/London"
+                          house_system:
+                            type: string
+                            example: "equal"
+                      coordinate_system:
+                        type: string
+                        example: "tropical"
+                      zodiac:
+                        type: string
+                        example: "tropical"
+                      ephemeris:
+                        type: string
+                        example: "pyephem"
+                      reference_frame:
+                        type: string
+                        example: "geocentric"
+                      longitude_type:
+                        type: string
+                        example: "apparent"
+                      equinox:
+                        type: string
+                        example: "date"
+                      orb_rules:
+                        type: object
+                        properties:
+                          conjunction:
+                            type: number
+                            example: 8
+                          sextile:
+                            type: number
+                            example: 6
+                          square:
+                            type: number
+                            example: 8
+                          trine:
+                            type: number
+                            example: 8
+                          opposition:
+                            type: number
+                            example: 8
+                  points:
+                    type: object
+                    description: Planetary positions (longitude and latitude in degrees)
+                    properties:
+                      sun:
+                        type: object
+                        properties:
+                          lon:
+                            type: number
+                            example: 293.86
+                          lat:
+                            type: number
+                            example: 0.0
+                          house:
+                            type: number
+                            example: 11
+                      moon:
+                        type: object
+                        properties:
+                          lon:
+                            type: number
+                            example: 244.62
+                          lat:
+                            type: number
+                            example: -5.1
+                          house:
+                            type: number
+                            example: 10
+                      mercury:
+                        type: object
+                      venus:
+                        type: object
+                      mars:
+                        type: object
+                      jupiter:
+                        type: object
+                      saturn:
+                        type: object
+                      uranus:
+                        type: object
+                      neptune:
+                        type: object
+                      pluto:
+                        type: object
+                  houses:
+                    type: object
+                    properties:
+                      cusps:
+                        type: array
+                        items:
+                          type: number
+                        example: [333.67, 3.67, 33.67, 63.67, 93.67, 123.67, 153.67, 183.67, 213.67, 243.67, 273.67, 303.67]
+                      ascendant:
+                        type: number
+                        example: 333.67
+                      midheaven:
+                        type: number
+                        example: 258.61
+                  aspects:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        p1:
+                          type: string
+                          description: First planet
+                          example: "sun"
+                        p2:
+                          type: string
+                          description: Second planet
+                          example: "mercury"
+                        type:
+                          type: string
+                          description: Aspect type
+                          example: "conjunction"
+                        orb:
+                          type: number
+                          description: Orb in degrees
+                          example: 4.56
+              example:
+                meta:
+                  timestamp: "2026-01-14T09:39:27Z"
+                  location:
+                    lat: 51.5074
+                    lon: -0.1278
+                    timezone: "Europe/London"
+                    house_system: "equal"
+                  coordinate_system: "tropical"
+                  zodiac: "tropical"
+                  ephemeris: "pyephem"
+                  reference_frame: "geocentric"
+                  longitude_type: "apparent"
+                  equinox: "date"
+                  orb_rules:
+                    conjunction: 8
+                    sextile: 6
+                    square: 8
+                    trine: 8
+                    opposition: 8
+                points:
+                  sun:
+                    lon: 293.86
+                    lat: 0.0
+                    house: 11
+                  moon:
+                    lon: 244.62
+                    lat: -5.1
+                    house: 10
+                houses:
+                  cusps: [333.67, 3.67, 33.67, 63.67, 93.67, 123.67, 153.67, 183.67, 213.67, 243.67, 273.67, 303.67]
+                  ascendant: 333.67
+                  midheaven: 258.61
+                aspects:
+                  - p1: "sun"
+                    p2: "mercury"
+                    type: "conjunction"
+                    orb: 4.56
+        '400':
+          description: Bad request
+        '500':
+          description: Server error
+
+  /phase:
+    get:
+      summary: Get moon phase information only
+      description: Returns moon phase information. Lat/lon are optional and default to London coordinates (51.5074, -0.1278). Backwards compatible.
+      parameters:
+        - $ref: '#/components/parameters/latitudeParam'
+        - $ref: '#/components/parameters/longitudeParam'
+        - $ref: '#/components/parameters/timestampParam'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  timestamp:
+                    type: integer
+                  datestamp:
+                    type: string
+                  moon:
+                    type: object
+                    properties:
+                      phase:
+                        type: number
+                      phase_name:
+                        type: string
+                      major_phase:
+                        type: string
+                      stage:
+                        type: string
+                      illumination:
+                        type: string
+                      age_days:
+                        type: integer
+                      emoji:
+                        type: string
+              example:
+                timestamp: 1768327440
+                datestamp: "Tue, 13 Jan 2026 18:04:00 +0000"
+                moon:
+                  phase: 0.8294482328
+                  phase_name: "Waning crescent"
+                  major_phase: "New Moon"
+                  stage: "waning"
+                  illumination: "22%"
+                  age_days: 24
+                  emoji: "🌒"
+        '400':
+          description: Bad request
+        '500':
+          description: Server error
+
+  /emoji:
+    get:
+      summary: Get current moon phase emoji (plain text)
+      description: Returns just the moon emoji as plain text. Lat/lon are optional and default to London coordinates (51.5074, -0.1278). Backwards compatible.
+      parameters:
+        - $ref: '#/components/parameters/latitudeParam'
+        - $ref: '#/components/parameters/longitudeParam'
+        - $ref: '#/components/parameters/timestampParam'
+      responses:
+        '200':
+          description: Successful response - returns plain text emoji
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "🌕"
+        '500':
+          description: Server error
+
+  /plain-text:
+    get:
+      summary: Get moon phase name (plain text)
+      description: Returns just the moon phase name as plain text. Lat/lon are optional and default to London coordinates (51.5074, -0.1278). Backwards compatible.
+      parameters:
+        - $ref: '#/components/parameters/latitudeParam'
+        - $ref: '#/components/parameters/longitudeParam'
+        - $ref: '#/components/parameters/timestampParam'
+      responses:
+        '200':
+          description: Successful response - returns plain text phase name
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Waning gibbous"
+        '500':
+          description: Server error
+
+  /calendar:
+    get:
+      summary: Get moon and sun data calendar
+      description: Returns moon and sun data for a date range
+      parameters:
+        - $ref: '#/components/parameters/latitudeParam'
+        - $ref: '#/components/parameters/longitudeParam'
+        - name: start_date
+          in: query
+          description: Start date (YYYY-MM-DD)
+          required: false
+          schema:
+            type: string
+            format: date
+        - name: end_date
+          in: query
+          description: End date (YYYY-MM-DD)
+          required: false
+          schema:
+            type: string
+            format: date
+        - name: days
+          in: query
+          description: "Number of days from today (if dates not provided, default: 30)"
+          required: false
+          schema:
+            type: integer
+            default: 30
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  start_date:
+                    type: string
+                  end_date:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MoonSunResponse'
+              example:
+                start_date: "2026-01-01"
+                end_date: "2026-01-07"
+                data:
+                  - timestamp: 1768327440
+                    datestamp: "Tue, 13 Jan 2026 18:04:00 +0000"
+                    plan: "MEGA"
+                    sun:
+                      sunrise: 1768291282
+                      sunrise_timestamp: "08:01"
+                      sunset: 1768321044
+                      sunset_timestamp: "16:17"
+                      solar_noon: "12:09"
+                      day_length: "08:16"
+                    moon:
+                      phase: 0.8294482328
+                      phase_name: "Waning crescent"
+                      major_phase: "New Moon"
+                      stage: "waning"
+                      illumination: "22%"
+                      age_days: 24
+        '400':
+          description: Bad request
+        '500':
+          description: Server error
