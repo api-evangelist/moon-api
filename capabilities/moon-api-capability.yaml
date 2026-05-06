@@ -1,0 +1,282 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Moon-API.com
+  description: API for retrieving detailed moon phase data, sun data, calendars, and astronomical information
+  tags:
+  - Moon
+  - Api
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: moon-api
+    baseUri: https://moon-phase.p.rapidapi.com
+    description: Moon-API.com HTTP API.
+    authentication:
+      type: apikey
+      in: header
+      name: x-rapidapi-key
+      value: '{{MOON_API_TOKEN}}'
+    resources:
+    - name: basic
+      path: /basic
+      operations:
+      - name: get-basic
+        method: GET
+        description: Get basic moon phase information
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: advanced
+      path: /advanced
+      operations:
+      - name: get-advanced
+        method: GET
+        description: Get detailed moon and sun data (MEGA plan)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: astrology
+      path: /astrology
+      operations:
+      - name: get-astrology
+        method: GET
+        description: Get astrology data (natal chart and planetary positions)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: phase
+      path: /phase
+      operations:
+      - name: get-phase
+        method: GET
+        description: Get moon phase information only
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: emoji
+      path: /emoji
+      operations:
+      - name: get-emoji
+        method: GET
+        description: Get current moon phase emoji (plain text)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: plain-text
+      path: /plain-text
+      operations:
+      - name: get-plain-text
+        method: GET
+        description: Get moon phase name (plain text)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: calendar
+      path: /calendar
+      operations:
+      - name: get-calendar
+        method: GET
+        description: Get moon and sun data calendar
+        inputParameters:
+        - name: start_date
+          in: query
+          type: string
+          description: Start date (YYYY-MM-DD)
+        - name: end_date
+          in: query
+          type: string
+          description: End date (YYYY-MM-DD)
+        - name: days
+          in: query
+          type: integer
+          description: 'Number of days from today (if dates not provided, default: 30)'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: moon-api-rest
+    description: REST adapter for Moon-API.com.
+    resources:
+    - path: /basic
+      name: get-basic
+      operations:
+      - method: GET
+        name: get-basic
+        description: Get basic moon phase information
+        call: moon-api.get-basic
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /advanced
+      name: get-advanced
+      operations:
+      - method: GET
+        name: get-advanced
+        description: Get detailed moon and sun data (MEGA plan)
+        call: moon-api.get-advanced
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /astrology
+      name: get-astrology
+      operations:
+      - method: GET
+        name: get-astrology
+        description: Get astrology data (natal chart and planetary positions)
+        call: moon-api.get-astrology
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /phase
+      name: get-phase
+      operations:
+      - method: GET
+        name: get-phase
+        description: Get moon phase information only
+        call: moon-api.get-phase
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /emoji
+      name: get-emoji
+      operations:
+      - method: GET
+        name: get-emoji
+        description: Get current moon phase emoji (plain text)
+        call: moon-api.get-emoji
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /plain-text
+      name: get-plain-text
+      operations:
+      - method: GET
+        name: get-plain-text
+        description: Get moon phase name (plain text)
+        call: moon-api.get-plain-text
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /calendar
+      name: get-calendar
+      operations:
+      - method: GET
+        name: get-calendar
+        description: Get moon and sun data calendar
+        call: moon-api.get-calendar
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: moon-api-mcp
+    transport: http
+    description: MCP adapter for Moon-API.com for AI agent use.
+    tools:
+    - name: get-basic
+      description: Get basic moon phase information
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: moon-api.get-basic
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-advanced
+      description: Get detailed moon and sun data (MEGA plan)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: moon-api.get-advanced
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-astrology
+      description: Get astrology data (natal chart and planetary positions)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: moon-api.get-astrology
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-phase
+      description: Get moon phase information only
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: moon-api.get-phase
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-emoji
+      description: Get current moon phase emoji (plain text)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: moon-api.get-emoji
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-plain-text
+      description: Get moon phase name (plain text)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: moon-api.get-plain-text
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-calendar
+      description: Get moon and sun data calendar
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: moon-api.get-calendar
+      with:
+        start_date: tools.start_date
+        end_date: tools.end_date
+        days: tools.days
+      inputParameters:
+      - name: start_date
+        type: string
+        description: Start date (YYYY-MM-DD)
+      - name: end_date
+        type: string
+        description: End date (YYYY-MM-DD)
+      - name: days
+        type: integer
+        description: 'Number of days from today (if dates not provided, default: 30)'
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    MOON_API_TOKEN: MOON_API_TOKEN
