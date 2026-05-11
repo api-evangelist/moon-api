@@ -54,6 +54,10 @@ common:
     url: https://moon-api.com/swagger.html
   - type: SignUp
     url: https://rapidapi.com/
+  - type: Integrations
+    url: https://moon-api.com/integrations
+integrations:
+  - name: Moon-API
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
