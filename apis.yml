@@ -52,6 +52,8 @@ common:
   url: https://rapidapi.com/
 - type: Integrations
   url: https://moon-api.com/integrations
+- type: LLMsTxt
+  url: https://moon-api.com/llms.txt
 integrations:
 - name: Moon-API
 maintainers:
