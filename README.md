@@ -1,7 +1,8 @@
 # Moon-API (moon-api)
+
 Moon-API.com provides real-time lunar and astronomical data including moon phases, illumination, moonrise and moonset times, sun data, calendars, and astrology data such as natal charts, planetary positions, aspects, and house cusps. The API is offered through the RapidAPI marketplace with global edge caching for low-latency responses.
 
-**URL:** [Visit APIs.json URL](https://moon-api.com/)
+**APIs.json:** [https://moon-api.com/](https://moon-api.com/)
 
 ## Scope
 
@@ -9,41 +10,54 @@ Moon-API.com provides real-time lunar and astronomical data including moon phase
 - **Position:** Consuming
 - **Access:** 3rd-Party
 
-## Tags:
+## Tags
 
- - Astrology, Astronomy, Lunar, Moon, Moon Phases, Space
+- Astrology
+- Astronomy
+- Lunar
+- Moon
+- Moon Phases
+- Space
 
 ## Timestamps
 
 - **Created:** 2024-03-30
-- **Modified:** 2026-04-28
+- **Modified:** 2026-05-19
 
 ## APIs
 
 ### Moon API
+
 Real-time moon data API providing information about moon phases, illumination, moonrise and moonset times, sun data, calendars, and astrology data including natal charts, planetary positions, aspects, and house cusps for any location and date. Authentication uses a RapidAPI key passed via the x-rapidapi-key header.
 
-**Human URL:** [https://moon-api.com/](https://moon-api.com/)
+- **Human URL:** [https://moon-api.com/](https://moon-api.com/)
 
-#### Tags:
+#### Tags
 
- - Astrology, Astronomy, Lunar, Moon, Moon Phases
+- Astrology
+- Astronomy
+- Lunar
+- Moon
+- Moon Phases
 
 #### Properties
 
 - [Documentation](https://moon-api.com/)
-- [SwaggerUI](https://moon-api.com/swagger.html)
-- [OpenAPI](openapi/moon-api-openapi.yml)
-- [SignUp](https://rapidapi.com/)
+- [Swagger U I](https://moon-api.com/swagger.html)
+- [OpenAPI](openapi/moon-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/moon-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/moon-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Sign Up](https://rapidapi.com/)
 
 ## Common Properties
 
 - [Documentation](https://moon-api.com/)
-- [SwaggerUI](https://moon-api.com/swagger.html)
-- [SignUp](https://rapidapi.com/)
+- [Swagger U I](https://moon-api.com/swagger.html)
+- [Sign Up](https://rapidapi.com/)
+- [Integrations](https://moon-api.com/integrations)
+- [L L Ms Txt](https://moon-api.com/llms.txt)
 
 ## Maintainers
 
 **FN:** Kin Lane
-
 **Email:** kin@apievangelist.com

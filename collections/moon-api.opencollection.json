@@ -1,0 +1,247 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Moon-API.com",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-rapidapi-key",
+      "value": "{{x-rapidapi-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get basic moon phase information",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://moon-phase.p.rapidapi.com/basic",
+        "params": [
+          {
+            "name": "lat",
+            "value": "",
+            "type": "query",
+            "description": "Latitude coordinate (-90 to 90). Optional, defaults to 51.5074 (London, UK)"
+          },
+          {
+            "name": "lon",
+            "value": "",
+            "type": "query",
+            "description": "Longitude coordinate (-180 to 180). Optional, defaults to -0.1278 (London, UK - west is negative)"
+          },
+          {
+            "name": "timestamp",
+            "value": "",
+            "type": "query",
+            "description": "Unix timestamp (optional, defaults to current time)"
+          }
+        ]
+      },
+      "docs": "Returns simplified moon phase data with phase name, stage, and days until next phases. Lat/lon are optional and default to London coordinates (51.5074, -0.1278). Backwards compatible."
+    },
+    {
+      "info": {
+        "name": "Get detailed moon and sun data (MEGA plan)",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://moon-phase.p.rapidapi.com/advanced",
+        "params": [
+          {
+            "name": "lat",
+            "value": "",
+            "type": "query",
+            "description": "Latitude coordinate (-90 to 90). Optional, defaults to 51.5074 (London, UK)"
+          },
+          {
+            "name": "lon",
+            "value": "",
+            "type": "query",
+            "description": "Longitude coordinate (-180 to 180). Optional, defaults to -0.1278 (London, UK - west is negative)"
+          },
+          {
+            "name": "timestamp",
+            "value": "",
+            "type": "query",
+            "description": "Unix timestamp (optional, defaults to current time)"
+          }
+        ]
+      },
+      "docs": "Returns comprehensive astronomical data. Lat/lon are optional and default to London coordinates. Backwards compatible."
+    },
+    {
+      "info": {
+        "name": "Get astrology data (natal chart and planetary positions)",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://moon-phase.p.rapidapi.com/astrology",
+        "params": [
+          {
+            "name": "lat",
+            "value": "",
+            "type": "query",
+            "description": "Latitude coordinate (-90 to 90). Optional, defaults to 51.5074 (London, UK)"
+          },
+          {
+            "name": "lon",
+            "value": "",
+            "type": "query",
+            "description": "Longitude coordinate (-180 to 180). Optional, defaults to -0.1278 (London, UK - west is negative)"
+          },
+          {
+            "name": "timestamp",
+            "value": "",
+            "type": "query",
+            "description": "Unix timestamp (optional, defaults to current time)"
+          }
+        ]
+      },
+      "docs": "Returns natal chart data, planetary positions, house cusps, and astrological aspects. Lat/lon are optional and default to London coordinates."
+    },
+    {
+      "info": {
+        "name": "Get moon phase information only",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://moon-phase.p.rapidapi.com/phase",
+        "params": [
+          {
+            "name": "lat",
+            "value": "",
+            "type": "query",
+            "description": "Latitude coordinate (-90 to 90). Optional, defaults to 51.5074 (London, UK)"
+          },
+          {
+            "name": "lon",
+            "value": "",
+            "type": "query",
+            "description": "Longitude coordinate (-180 to 180). Optional, defaults to -0.1278 (London, UK - west is negative)"
+          },
+          {
+            "name": "timestamp",
+            "value": "",
+            "type": "query",
+            "description": "Unix timestamp (optional, defaults to current time)"
+          }
+        ]
+      },
+      "docs": "Returns moon phase information. Lat/lon are optional and default to London coordinates (51.5074, -0.1278). Backwards compatible."
+    },
+    {
+      "info": {
+        "name": "Get current moon phase emoji (plain text)",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://moon-phase.p.rapidapi.com/emoji",
+        "params": [
+          {
+            "name": "lat",
+            "value": "",
+            "type": "query",
+            "description": "Latitude coordinate (-90 to 90). Optional, defaults to 51.5074 (London, UK)"
+          },
+          {
+            "name": "lon",
+            "value": "",
+            "type": "query",
+            "description": "Longitude coordinate (-180 to 180). Optional, defaults to -0.1278 (London, UK - west is negative)"
+          },
+          {
+            "name": "timestamp",
+            "value": "",
+            "type": "query",
+            "description": "Unix timestamp (optional, defaults to current time)"
+          }
+        ]
+      },
+      "docs": "Returns just the moon emoji as plain text. Lat/lon are optional and default to London coordinates (51.5074, -0.1278). Backwards compatible."
+    },
+    {
+      "info": {
+        "name": "Get moon phase name (plain text)",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://moon-phase.p.rapidapi.com/plain-text",
+        "params": [
+          {
+            "name": "lat",
+            "value": "",
+            "type": "query",
+            "description": "Latitude coordinate (-90 to 90). Optional, defaults to 51.5074 (London, UK)"
+          },
+          {
+            "name": "lon",
+            "value": "",
+            "type": "query",
+            "description": "Longitude coordinate (-180 to 180). Optional, defaults to -0.1278 (London, UK - west is negative)"
+          },
+          {
+            "name": "timestamp",
+            "value": "",
+            "type": "query",
+            "description": "Unix timestamp (optional, defaults to current time)"
+          }
+        ]
+      },
+      "docs": "Returns just the moon phase name as plain text. Lat/lon are optional and default to London coordinates (51.5074, -0.1278). Backwards compatible."
+    },
+    {
+      "info": {
+        "name": "Get moon and sun data calendar",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://moon-phase.p.rapidapi.com/calendar",
+        "params": [
+          {
+            "name": "lat",
+            "value": "",
+            "type": "query",
+            "description": "Latitude coordinate (-90 to 90). Optional, defaults to 51.5074 (London, UK)"
+          },
+          {
+            "name": "lon",
+            "value": "",
+            "type": "query",
+            "description": "Longitude coordinate (-180 to 180). Optional, defaults to -0.1278 (London, UK - west is negative)"
+          },
+          {
+            "name": "start_date",
+            "value": "",
+            "type": "query",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "value": "",
+            "type": "query",
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "days",
+            "value": "",
+            "type": "query",
+            "description": "Number of days from today (if dates not provided, default: 30)"
+          }
+        ]
+      },
+      "docs": "Returns moon and sun data for a date range"
+    }
+  ],
+  "bundled": true
+}
