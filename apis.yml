@@ -8,7 +8,7 @@ description: >-
 type: Index
 position: Consuming
 access: 3rd-Party
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://moon-api.com/
 created: '2024-03-30'
 modified: '2026-05-19'
@@ -26,7 +26,7 @@ apis:
       Real-time moon data API providing information about moon phases, illumination, moonrise and moonset times, sun
       data, calendars, and astrology data including natal charts, planetary positions, aspects, and house cusps for any
       location and date. Authentication uses a RapidAPI key passed via the x-rapidapi-key header.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://moon-api.com/
     tags:
       - Astrology
