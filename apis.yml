@@ -41,18 +41,18 @@ apis:
         url: https://moon-api.com/swagger.html
       - type: OpenAPI
         url: openapi/moon-api-openapi.yml
-      - type: SignUp
+      - type: Signup
         url: https://rapidapi.com/
 common:
   - type: Documentation
     url: https://moon-api.com/
   - type: SwaggerUI
     url: https://moon-api.com/swagger.html
-  - type: SignUp
+  - type: Signup
     url: https://rapidapi.com/
   - type: Integrations
     url: https://moon-api.com/integrations
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://moon-api.com/llms.txt
 integrations:
   - name: Moon-API
