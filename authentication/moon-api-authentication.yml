@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/moon-api-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: RapidAPIKey
+  type: apiKey
+  in: header
+  parameter: x-rapidapi-key
+  description: RapidAPI authentication key
+  sources:
+  - openapi/moon-api-openapi.yml

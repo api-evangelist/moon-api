@@ -44,6 +44,12 @@ apis:
       - type: Signup
         url: https://rapidapi.com/
 common:
+  - type: VulnerabilityDisclosure
+    url: security/moon-api-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/moon-api-domain-security.yml
+  - type: Authentication
+    url: authentication/moon-api-authentication.yml
   - type: Documentation
     url: https://moon-api.com/
   - type: SwaggerUI
