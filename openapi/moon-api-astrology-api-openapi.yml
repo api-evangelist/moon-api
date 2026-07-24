@@ -1,0 +1,271 @@
+openapi: 3.0.0
+info:
+  title: Moon-API.com Advanced Astrology API
+  description: API for retrieving detailed moon phase data, sun data, calendars, and astronomical information
+  version: 2.0.0
+  contact:
+    name: Moon-API.com
+    url: https://moon-api.com
+servers:
+- url: https://moon-phase.p.rapidapi.com
+  description: Production server (via RapidAPI)
+security:
+- RapidAPIKey: []
+tags:
+- name: Astrology
+paths:
+  /astrology:
+    get:
+      summary: Get astrology data (natal chart and planetary positions)
+      description: Returns natal chart data, planetary positions, house cusps, and astrological aspects. Lat/lon are optional and default to London coordinates.
+      parameters:
+      - $ref: '#/components/parameters/latitudeParam'
+      - $ref: '#/components/parameters/longitudeParam'
+      - $ref: '#/components/parameters/timestampParam'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  meta:
+                    type: object
+                    properties:
+                      timestamp:
+                        type: string
+                        example: '2026-01-14T09:39:27Z'
+                      location:
+                        type: object
+                        properties:
+                          lat:
+                            type: number
+                            example: 51.5074
+                          lon:
+                            type: number
+                            example: -0.1278
+                          timezone:
+                            type: string
+                            example: Europe/London
+                          house_system:
+                            type: string
+                            example: equal
+                      coordinate_system:
+                        type: string
+                        example: tropical
+                      zodiac:
+                        type: string
+                        example: tropical
+                      ephemeris:
+                        type: string
+                        example: pyephem
+                      reference_frame:
+                        type: string
+                        example: geocentric
+                      longitude_type:
+                        type: string
+                        example: apparent
+                      equinox:
+                        type: string
+                        example: date
+                      orb_rules:
+                        type: object
+                        properties:
+                          conjunction:
+                            type: number
+                            example: 8
+                          sextile:
+                            type: number
+                            example: 6
+                          square:
+                            type: number
+                            example: 8
+                          trine:
+                            type: number
+                            example: 8
+                          opposition:
+                            type: number
+                            example: 8
+                  points:
+                    type: object
+                    description: Planetary positions (longitude and latitude in degrees)
+                    properties:
+                      sun:
+                        type: object
+                        properties:
+                          lon:
+                            type: number
+                            example: 293.86
+                          lat:
+                            type: number
+                            example: 0.0
+                          house:
+                            type: number
+                            example: 11
+                      moon:
+                        type: object
+                        properties:
+                          lon:
+                            type: number
+                            example: 244.62
+                          lat:
+                            type: number
+                            example: -5.1
+                          house:
+                            type: number
+                            example: 10
+                      mercury:
+                        type: object
+                      venus:
+                        type: object
+                      mars:
+                        type: object
+                      jupiter:
+                        type: object
+                      saturn:
+                        type: object
+                      uranus:
+                        type: object
+                      neptune:
+                        type: object
+                      pluto:
+                        type: object
+                  houses:
+                    type: object
+                    properties:
+                      cusps:
+                        type: array
+                        items:
+                          type: number
+                        example:
+                        - 333.67
+                        - 3.67
+                        - 33.67
+                        - 63.67
+                        - 93.67
+                        - 123.67
+                        - 153.67
+                        - 183.67
+                        - 213.67
+                        - 243.67
+                        - 273.67
+                        - 303.67
+                      ascendant:
+                        type: number
+                        example: 333.67
+                      midheaven:
+                        type: number
+                        example: 258.61
+                  aspects:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        p1:
+                          type: string
+                          description: First planet
+                          example: sun
+                        p2:
+                          type: string
+                          description: Second planet
+                          example: mercury
+                        type:
+                          type: string
+                          description: Aspect type
+                          example: conjunction
+                        orb:
+                          type: number
+                          description: Orb in degrees
+                          example: 4.56
+              example:
+                meta:
+                  timestamp: '2026-01-14T09:39:27Z'
+                  location:
+                    lat: 51.5074
+                    lon: -0.1278
+                    timezone: Europe/London
+                    house_system: equal
+                  coordinate_system: tropical
+                  zodiac: tropical
+                  ephemeris: pyephem
+                  reference_frame: geocentric
+                  longitude_type: apparent
+                  equinox: date
+                  orb_rules:
+                    conjunction: 8
+                    sextile: 6
+                    square: 8
+                    trine: 8
+                    opposition: 8
+                points:
+                  sun:
+                    lon: 293.86
+                    lat: 0.0
+                    house: 11
+                  moon:
+                    lon: 244.62
+                    lat: -5.1
+                    house: 10
+                houses:
+                  cusps:
+                  - 333.67
+                  - 3.67
+                  - 33.67
+                  - 63.67
+                  - 93.67
+                  - 123.67
+                  - 153.67
+                  - 183.67
+                  - 213.67
+                  - 243.67
+                  - 273.67
+                  - 303.67
+                  ascendant: 333.67
+                  midheaven: 258.61
+                aspects:
+                - p1: sun
+                  p2: mercury
+                  type: conjunction
+                  orb: 4.56
+        '400':
+          description: Bad request
+        '500':
+          description: Server error
+      tags:
+      - Astrology
+components:
+  parameters:
+    timestampParam:
+      name: timestamp
+      in: query
+      description: Unix timestamp (optional, defaults to current time)
+      required: false
+      schema:
+        type: integer
+    longitudeParam:
+      name: lon
+      in: query
+      description: Longitude coordinate (-180 to 180). Optional, defaults to -0.1278 (London, UK - west is negative)
+      required: false
+      schema:
+        type: number
+        minimum: -180
+        maximum: 180
+        default: -0.1278
+    latitudeParam:
+      name: lat
+      in: query
+      description: Latitude coordinate (-90 to 90). Optional, defaults to 51.5074 (London, UK)
+      required: false
+      schema:
+        type: number
+        minimum: -90
+        maximum: 90
+        default: 51.5074
+  securitySchemes:
+    RapidAPIKey:
+      type: apiKey
+      name: x-rapidapi-key
+      in: header
+      description: RapidAPI authentication key

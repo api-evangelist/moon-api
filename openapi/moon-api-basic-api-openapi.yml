@@ -1,0 +1,96 @@
+openapi: 3.0.0
+info:
+  title: Moon-API.com Advanced Basic API
+  description: API for retrieving detailed moon phase data, sun data, calendars, and astronomical information
+  version: 2.0.0
+  contact:
+    name: Moon-API.com
+    url: https://moon-api.com
+servers:
+- url: https://moon-phase.p.rapidapi.com
+  description: Production server (via RapidAPI)
+security:
+- RapidAPIKey: []
+tags:
+- name: Basic
+paths:
+  /basic:
+    get:
+      summary: Get basic moon phase information
+      description: Returns simplified moon phase data with phase name, stage, and days until next phases. Lat/lon are optional and default to London coordinates (51.5074, -0.1278). Backwards compatible.
+      parameters:
+      - $ref: '#/components/parameters/latitudeParam'
+      - $ref: '#/components/parameters/longitudeParam'
+      - $ref: '#/components/parameters/timestampParam'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  phase_name:
+                    type: string
+                    description: Current moon phase name
+                  stage:
+                    type: string
+                    enum:
+                    - waxing
+                    - waning
+                    - new
+                    - full
+                    description: Moon stage (waxing = increasing, waning = decreasing)
+                  days_until_next_full_moon:
+                    type: integer
+                    description: Number of days until the next full moon
+                  days_until_next_new_moon:
+                    type: integer
+                    description: Number of days until the next new moon
+              example:
+                phase_name: Waning gibbous
+                stage: waning
+                illumination: 22%
+                days_until_next_full_moon: 27
+                days_until_next_new_moon: 13
+        '400':
+          description: Bad request
+        '500':
+          description: Server error
+      tags:
+      - Basic
+components:
+  parameters:
+    timestampParam:
+      name: timestamp
+      in: query
+      description: Unix timestamp (optional, defaults to current time)
+      required: false
+      schema:
+        type: integer
+    longitudeParam:
+      name: lon
+      in: query
+      description: Longitude coordinate (-180 to 180). Optional, defaults to -0.1278 (London, UK - west is negative)
+      required: false
+      schema:
+        type: number
+        minimum: -180
+        maximum: 180
+        default: -0.1278
+    latitudeParam:
+      name: lat
+      in: query
+      description: Latitude coordinate (-90 to 90). Optional, defaults to 51.5074 (London, UK)
+      required: false
+      schema:
+        type: number
+        minimum: -90
+        maximum: 90
+        default: 51.5074
+  securitySchemes:
+    RapidAPIKey:
+      type: apiKey
+      name: x-rapidapi-key
+      in: header
+      description: RapidAPI authentication key

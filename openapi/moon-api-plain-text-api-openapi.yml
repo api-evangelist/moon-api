@@ -1,0 +1,71 @@
+openapi: 3.0.0
+info:
+  title: Moon-API.com Advanced Plain Text API
+  description: API for retrieving detailed moon phase data, sun data, calendars, and astronomical information
+  version: 2.0.0
+  contact:
+    name: Moon-API.com
+    url: https://moon-api.com
+servers:
+- url: https://moon-phase.p.rapidapi.com
+  description: Production server (via RapidAPI)
+security:
+- RapidAPIKey: []
+tags:
+- name: Plain Text
+paths:
+  /plain-text:
+    get:
+      summary: Get moon phase name (plain text)
+      description: Returns just the moon phase name as plain text. Lat/lon are optional and default to London coordinates (51.5074, -0.1278). Backwards compatible.
+      parameters:
+      - $ref: '#/components/parameters/latitudeParam'
+      - $ref: '#/components/parameters/longitudeParam'
+      - $ref: '#/components/parameters/timestampParam'
+      responses:
+        '200':
+          description: Successful response - returns plain text phase name
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Waning gibbous
+        '500':
+          description: Server error
+      tags:
+      - Plain Text
+components:
+  parameters:
+    timestampParam:
+      name: timestamp
+      in: query
+      description: Unix timestamp (optional, defaults to current time)
+      required: false
+      schema:
+        type: integer
+    longitudeParam:
+      name: lon
+      in: query
+      description: Longitude coordinate (-180 to 180). Optional, defaults to -0.1278 (London, UK - west is negative)
+      required: false
+      schema:
+        type: number
+        minimum: -180
+        maximum: 180
+        default: -0.1278
+    latitudeParam:
+      name: lat
+      in: query
+      description: Latitude coordinate (-90 to 90). Optional, defaults to 51.5074 (London, UK)
+      required: false
+      schema:
+        type: number
+        minimum: -90
+        maximum: 90
+        default: 51.5074
+  securitySchemes:
+    RapidAPIKey:
+      type: apiKey
+      name: x-rapidapi-key
+      in: header
+      description: RapidAPI authentication key
