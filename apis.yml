@@ -1,4 +1,17 @@
 aid: moon-api
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.19'
 name: Moon-API
 description: >-
@@ -8,7 +21,7 @@ description: >-
 type: Index
 position: Consuming
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/moon-api.png
 url: https://moon-api.com/
 created: '2024-03-30'
 modified: '2026-05-19'
@@ -20,29 +33,111 @@ tags:
   - Moon Phases
   - Space
 apis:
-  - aid: moon-api:moon-api
-    name: Moon API
-    description: >-
-      Real-time moon data API providing information about moon phases, illumination, moonrise and moonset times, sun
-      data, calendars, and astrology data including natal charts, planetary positions, aspects, and house cusps for any
-      location and date. Authentication uses a RapidAPI key passed via the x-rapidapi-key header.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://moon-api.com/
-    tags:
-      - Astrology
-      - Astronomy
-      - Lunar
-      - Moon
-      - Moon Phases
-    properties:
-      - type: Documentation
-        url: https://moon-api.com/
-      - type: SwaggerUI
-        url: https://moon-api.com/swagger.html
-      - type: OpenAPI
-        url: openapi/moon-api-openapi.yml
-      - type: Signup
-        url: https://rapidapi.com/
+- aid: moon-api:moon-api-advanced-api
+  name: Moon-API Advanced API
+  description: The Advanced API from Moon-API — 1 operation(s) for advanced.
+  humanURL: https://moon-api.com/
+  tags:
+  - Advanced
+  properties:
+  - type: OpenAPI
+    url: openapi/moon-api-advanced-api-openapi.yml
+  - type: Documentation
+    url: https://moon-api.com/
+  - type: SwaggerUI
+    url: https://moon-api.com/swagger.html
+  - type: Signup
+    url: https://rapidapi.com/
+- aid: moon-api:moon-api-astrology-api
+  name: Moon-API Astrology API
+  description: The Astrology API from Moon-API — 1 operation(s) for astrology.
+  humanURL: https://moon-api.com/
+  tags:
+  - Astrology
+  properties:
+  - type: OpenAPI
+    url: openapi/moon-api-astrology-api-openapi.yml
+  - type: Documentation
+    url: https://moon-api.com/
+  - type: SwaggerUI
+    url: https://moon-api.com/swagger.html
+  - type: Signup
+    url: https://rapidapi.com/
+- aid: moon-api:moon-api-basic-api
+  name: Moon-API Basic API
+  description: The Basic API from Moon-API — 1 operation(s) for basic.
+  humanURL: https://moon-api.com/
+  tags:
+  - Basic
+  properties:
+  - type: OpenAPI
+    url: openapi/moon-api-basic-api-openapi.yml
+  - type: Documentation
+    url: https://moon-api.com/
+  - type: SwaggerUI
+    url: https://moon-api.com/swagger.html
+  - type: Signup
+    url: https://rapidapi.com/
+- aid: moon-api:moon-api-calendar-api
+  name: Moon-API Calendar API
+  description: The Calendar API from Moon-API — 1 operation(s) for calendar.
+  humanURL: https://moon-api.com/
+  tags:
+  - Calendar
+  properties:
+  - type: OpenAPI
+    url: openapi/moon-api-calendar-api-openapi.yml
+  - type: Documentation
+    url: https://moon-api.com/
+  - type: SwaggerUI
+    url: https://moon-api.com/swagger.html
+  - type: Signup
+    url: https://rapidapi.com/
+- aid: moon-api:moon-api-emoji-api
+  name: Moon-API Emoji API
+  description: The Emoji API from Moon-API — 1 operation(s) for emoji.
+  humanURL: https://moon-api.com/
+  tags:
+  - Emoji
+  properties:
+  - type: OpenAPI
+    url: openapi/moon-api-emoji-api-openapi.yml
+  - type: Documentation
+    url: https://moon-api.com/
+  - type: SwaggerUI
+    url: https://moon-api.com/swagger.html
+  - type: Signup
+    url: https://rapidapi.com/
+- aid: moon-api:moon-api-phase-api
+  name: Moon-API Phase API
+  description: The Phase API from Moon-API — 1 operation(s) for phase.
+  humanURL: https://moon-api.com/
+  tags:
+  - Phase
+  properties:
+  - type: OpenAPI
+    url: openapi/moon-api-phase-api-openapi.yml
+  - type: Documentation
+    url: https://moon-api.com/
+  - type: SwaggerUI
+    url: https://moon-api.com/swagger.html
+  - type: Signup
+    url: https://rapidapi.com/
+- aid: moon-api:moon-api-plain-text-api
+  name: Moon-API Plain Text API
+  description: The Plain Text API from Moon-API — 1 operation(s) for plain text.
+  humanURL: https://moon-api.com/
+  tags:
+  - Plain Text
+  properties:
+  - type: OpenAPI
+    url: openapi/moon-api-plain-text-api-openapi.yml
+  - type: Documentation
+    url: https://moon-api.com/
+  - type: SwaggerUI
+    url: https://moon-api.com/swagger.html
+  - type: Signup
+    url: https://rapidapi.com/
 common:
   - type: AgenticAccess
     url: agentic-access/moon-api-agentic-access.yml
