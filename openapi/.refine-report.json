@@ -1,0 +1,26 @@
+{
+  "provider": "moon-api",
+  "sources": [
+    "moon-api-advanced-api-openapi.yml",
+    "moon-api-astrology-api-openapi.yml",
+    "moon-api-basic-api-openapi.yml",
+    "moon-api-calendar-api-openapi.yml",
+    "moon-api-emoji-api-openapi.yml",
+    "moon-api-phase-api-openapi.yml",
+    "moon-api-plain-text-api-openapi.yml"
+  ],
+  "outputs": [
+    "moon-api-advanced-api-openapi.yml",
+    "moon-api-astrology-api-openapi.yml",
+    "moon-api-basic-api-openapi.yml",
+    "moon-api-calendar-api-openapi.yml",
+    "moon-api-emoji-api-openapi.yml",
+    "moon-api-phase-api-openapi.yml",
+    "moon-api-plain-text-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
