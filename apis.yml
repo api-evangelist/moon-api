@@ -12,7 +12,7 @@ accessModel:
   - authentication
   generated: '2026-07-22'
   method: derived
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 name: Moon-API
 description: >-
   Moon-API.com provides real-time lunar and astronomical data including moon phases, illumination, moonrise and moonset
