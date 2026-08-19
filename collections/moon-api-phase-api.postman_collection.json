@@ -1,0 +1,263 @@
+{
+  "item": [
+    {
+      "id": "af38be38-b917-410b-aef6-c396ac936574",
+      "name": "Phase",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "da52e320-7bf8-4186-9b7a-795dade186aa",
+          "name": "Get moon phase information only",
+          "request": {
+            "name": "Get moon phase information only",
+            "description": {
+              "content": "Returns moon phase information. Lat/lon are optional and default to London coordinates (51.5074, -0.1278). Backwards compatible.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "phase"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "51.5074",
+                  "description": "Latitude coordinate (-90 to 90). Optional, defaults to 51.5074 (London, UK)"
+                },
+                {
+                  "disabled": false,
+                  "key": "lon",
+                  "value": "-0.1278",
+                  "description": "Longitude coordinate (-180 to 180). Optional, defaults to -0.1278 (London, UK - west is negative)"
+                },
+                {
+                  "disabled": false,
+                  "key": "timestamp",
+                  "value": "<integer>",
+                  "description": "Unix timestamp (optional, defaults to current time)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "476bcc8b-d1b3-4caa-882f-4559c921e9e0",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "phase"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "51.5074"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "-0.1278"
+                    },
+                    {
+                      "key": "timestamp",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": 1768327440,\n  \"datestamp\": \"Tue, 13 Jan 2026 18:04:00 +0000\",\n  \"moon\": {\n    \"phase\": 0.8294482328,\n    \"phase_name\": \"Waning crescent\",\n    \"major_phase\": \"New Moon\",\n    \"stage\": \"waning\",\n    \"illumination\": \"22%\",\n    \"age_days\": 24,\n    \"emoji\": \"🌒\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f6db6ccc-4a5a-4202-ba2b-9f533d272f0d",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "phase"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "51.5074"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "-0.1278"
+                    },
+                    {
+                      "key": "timestamp",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "af28fb23-b2ae-41f4-bcd7-5499ab133818",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "phase"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "51.5074"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "-0.1278"
+                    },
+                    {
+                      "key": "timestamp",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://moon-phase.p.rapidapi.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-rapidapi-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "37f6eb32-a4cc-4863-8615-074552cba02c",
+    "name": "Moon-API.com Advanced Phase API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving detailed moon phase data, sun data, calendars, and astronomical information\n\nContact Support:\n Name: Moon-API.com",
+      "type": "text/plain"
+    }
+  }
+}

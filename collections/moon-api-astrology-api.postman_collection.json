@@ -1,0 +1,263 @@
+{
+  "item": [
+    {
+      "id": "a7683c9f-195f-4c33-9a4c-fc22576a4895",
+      "name": "Astrology",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6e2a3b36-6ea8-4e1a-898d-cc63de38a204",
+          "name": "Get astrology data (natal chart and planetary positions)",
+          "request": {
+            "name": "Get astrology data (natal chart and planetary positions)",
+            "description": {
+              "content": "Returns natal chart data, planetary positions, house cusps, and astrological aspects. Lat/lon are optional and default to London coordinates.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "astrology"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "51.5074",
+                  "description": "Latitude coordinate (-90 to 90). Optional, defaults to 51.5074 (London, UK)"
+                },
+                {
+                  "disabled": false,
+                  "key": "lon",
+                  "value": "-0.1278",
+                  "description": "Longitude coordinate (-180 to 180). Optional, defaults to -0.1278 (London, UK - west is negative)"
+                },
+                {
+                  "disabled": false,
+                  "key": "timestamp",
+                  "value": "<integer>",
+                  "description": "Unix timestamp (optional, defaults to current time)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "566cabdc-38e5-41d0-97e0-b8c37f783da8",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "astrology"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "51.5074"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "-0.1278"
+                    },
+                    {
+                      "key": "timestamp",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"timestamp\": \"2026-01-14T09:39:27Z\",\n    \"location\": {\n      \"lat\": 51.5074,\n      \"lon\": -0.1278,\n      \"timezone\": \"Europe/London\",\n      \"house_system\": \"equal\"\n    },\n    \"coordinate_system\": \"tropical\",\n    \"zodiac\": \"tropical\",\n    \"ephemeris\": \"pyephem\",\n    \"reference_frame\": \"geocentric\",\n    \"longitude_type\": \"apparent\",\n    \"equinox\": \"date\",\n    \"orb_rules\": {\n      \"conjunction\": 8,\n      \"sextile\": 6,\n      \"square\": 8,\n      \"trine\": 8,\n      \"opposition\": 8\n    }\n  },\n  \"points\": {\n    \"sun\": {\n      \"lon\": 293.86,\n      \"lat\": 0,\n      \"house\": 11\n    },\n    \"moon\": {\n      \"lon\": 244.62,\n      \"lat\": -5.1,\n      \"house\": 10\n    }\n  },\n  \"houses\": {\n    \"cusps\": [\n      333.67,\n      3.67,\n      33.67,\n      63.67,\n      93.67,\n      123.67,\n      153.67,\n      183.67,\n      213.67,\n      243.67,\n      273.67,\n      303.67\n    ],\n    \"ascendant\": 333.67,\n    \"midheaven\": 258.61\n  },\n  \"aspects\": [\n    {\n      \"p1\": \"sun\",\n      \"p2\": \"mercury\",\n      \"type\": \"conjunction\",\n      \"orb\": 4.56\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2cd3f0c0-b39b-468a-9844-09e901def418",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "astrology"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "51.5074"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "-0.1278"
+                    },
+                    {
+                      "key": "timestamp",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0bd9835f-8a67-46cb-8b81-ac092e06f407",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "astrology"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "51.5074"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "-0.1278"
+                    },
+                    {
+                      "key": "timestamp",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://moon-phase.p.rapidapi.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-rapidapi-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d360f8e7-50bc-4aea-806e-d66e209ca4f3",
+    "name": "Moon-API.com Advanced Astrology API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving detailed moon phase data, sun data, calendars, and astronomical information\n\nContact Support:\n Name: Moon-API.com",
+      "type": "text/plain"
+    }
+  }
+}

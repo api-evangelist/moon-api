@@ -1,0 +1,299 @@
+{
+  "item": [
+    {
+      "id": "1d778129-e555-4464-889b-c5451600ad88",
+      "name": "Calendar",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5b912b9b-ccb0-42d5-a381-e1c6da34a141",
+          "name": "Get moon and sun data calendar",
+          "request": {
+            "name": "Get moon and sun data calendar",
+            "description": {
+              "content": "Returns moon and sun data for a date range",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendar"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "51.5074",
+                  "description": "Latitude coordinate (-90 to 90). Optional, defaults to 51.5074 (London, UK)"
+                },
+                {
+                  "disabled": false,
+                  "key": "lon",
+                  "value": "-0.1278",
+                  "description": "Longitude coordinate (-180 to 180). Optional, defaults to -0.1278 (London, UK - west is negative)"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<date>",
+                  "description": "Start date (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<date>",
+                  "description": "End date (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "days",
+                  "value": "30",
+                  "description": "Number of days from today (if dates not provided, default: 30)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4cf9681e-c100-4461-8b73-eadaa699ae90",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "51.5074"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "-0.1278"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "days",
+                      "value": "30"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"start_date\": \"2026-01-01\",\n  \"end_date\": \"2026-01-07\",\n  \"data\": [\n    {\n      \"timestamp\": 1768327440,\n      \"datestamp\": \"Tue, 13 Jan 2026 18:04:00 +0000\",\n      \"plan\": \"MEGA\",\n      \"sun\": {\n        \"sunrise\": 1768291282,\n        \"sunrise_timestamp\": \"08:01\",\n        \"sunset\": 1768321044,\n        \"sunset_timestamp\": \"16:17\",\n        \"solar_noon\": \"12:09\",\n        \"day_length\": \"08:16\"\n      },\n      \"moon\": {\n        \"phase\": 0.8294482328,\n        \"phase_name\": \"Waning crescent\",\n        \"major_phase\": \"New Moon\",\n        \"stage\": \"waning\",\n        \"illumination\": \"22%\",\n        \"age_days\": 24\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb12fc0e-15a8-400a-94af-d191b4328802",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "51.5074"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "-0.1278"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "days",
+                      "value": "30"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2ffd30b4-357e-4277-a99d-905cd09ecc0e",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "51.5074"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "-0.1278"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "days",
+                      "value": "30"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://moon-phase.p.rapidapi.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-rapidapi-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e25aed06-568e-4e1e-8803-0b8c78e4eb96",
+    "name": "Moon-API.com Advanced Calendar API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving detailed moon phase data, sun data, calendars, and astronomical information\n\nContact Support:\n Name: Moon-API.com",
+      "type": "text/plain"
+    }
+  }
+}

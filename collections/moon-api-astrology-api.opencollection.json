@@ -1,0 +1,57 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Moon-API.com Advanced Astrology API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-rapidapi-key",
+      "value": "{{x-rapidapi-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Astrology",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get astrology data (natal chart and planetary positions)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://moon-phase.p.rapidapi.com/astrology",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude coordinate (-90 to 90). Optional, defaults to 51.5074 (London, UK)"
+              },
+              {
+                "name": "lon",
+                "value": "",
+                "type": "query",
+                "description": "Longitude coordinate (-180 to 180). Optional, defaults to -0.1278 (London, UK - west is negative)"
+              },
+              {
+                "name": "timestamp",
+                "value": "",
+                "type": "query",
+                "description": "Unix timestamp (optional, defaults to current time)"
+              }
+            ]
+          },
+          "docs": "Returns natal chart data, planetary positions, house cusps, and astrological aspects. Lat/lon are optional and default to London coordinates."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,263 @@
+{
+  "item": [
+    {
+      "id": "71fe45fe-63c0-46df-a7b1-4d837ad4437b",
+      "name": "Advanced",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f2de04c7-571d-4666-921d-26579d60a592",
+          "name": "Get detailed moon and sun data (MEGA plan)",
+          "request": {
+            "name": "Get detailed moon and sun data (MEGA plan)",
+            "description": {
+              "content": "Returns comprehensive astronomical data. Lat/lon are optional and default to London coordinates. Backwards compatible.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "advanced"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "51.5074",
+                  "description": "Latitude coordinate (-90 to 90). Optional, defaults to 51.5074 (London, UK)"
+                },
+                {
+                  "disabled": false,
+                  "key": "lon",
+                  "value": "-0.1278",
+                  "description": "Longitude coordinate (-180 to 180). Optional, defaults to -0.1278 (London, UK - west is negative)"
+                },
+                {
+                  "disabled": false,
+                  "key": "timestamp",
+                  "value": "<integer>",
+                  "description": "Unix timestamp (optional, defaults to current time)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b95a27be-67d5-4208-8fc7-87736f9f325c",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advanced"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "51.5074"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "-0.1278"
+                    },
+                    {
+                      "key": "timestamp",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": 1768327440,\n  \"datestamp\": \"Tue, 13 Jan 2026 18:04:00 +0000\",\n  \"plan\": \"MEGA\",\n  \"sun\": {\n    \"sunrise\": 1768291282,\n    \"sunrise_timestamp\": \"08:01\",\n    \"sunset\": 1768321044,\n    \"sunset_timestamp\": \"16:17\",\n    \"solar_noon\": \"12:09\",\n    \"day_length\": \"08:16\",\n    \"position\": {\n      \"altitude\": -15.787896,\n      \"azimuth\": 255.330169,\n      \"distance\": 147145019639.96698\n    },\n    \"next_solar_eclipse\": {\n      \"timestamp\": 1771329600,\n      \"datestamp\": \"Tue, 17 Feb 2026 12:00:00 +0000\",\n      \"type\": \"Annular Solar Eclipse\",\n      \"visibility_regions\": \"s Argentina & Chile, s Africa, Antarctica ; [Annular: Antarctica]\"\n    }\n  },\n  \"moon\": {\n    \"phase\": 0.8294482328,\n    \"phase_name\": \"Waning crescent\",\n    \"major_phase\": \"New Moon\",\n    \"stage\": \"waning\",\n    \"illumination\": \"22%\",\n    \"age_days\": 24,\n    \"lunar_cycle\": \"22.49%\",\n    \"emoji\": \"🌒\",\n    \"zodiac\": {\n      \"sun_sign\": \"Capricorn\",\n      \"moon_sign\": \"Scorpio\"\n    },\n    \"moonrise\": \"02:27\",\n    \"moonrise_timestamp\": 1768184871,\n    \"moonset\": \"11:17\",\n    \"moonset_timestamp\": 1768216634,\n    \"detailed\": {\n      \"position\": {\n        \"altitude\": -55.204021,\n        \"azimuth\": 308.80069,\n        \"distance\": 405395288.669185,\n        \"parallactic_angle\": 29.033486,\n        \"phase_angle\": 123.39\n      },\n      \"visibility\": {\n        \"visible_hours\": 0,\n        \"best_viewing_time\": \"02:27\",\n        \"visibility_rating\": \"Poor\",\n        \"illumination\": \"22.49%\",\n        \"viewing_conditions\": {\n          \"phase_quality\": \"Good for observing surface detail along terminator line\",\n          \"recommended_equipment\": {\n            \"filters\": \"No filters needed\",\n            \"telescope\": \"4-inch or larger recommended\",\n            \"best_magnification\": \"High magnification (100-200x) for crater detail\"\n          }\n        }\n      },\n      \"upcoming_phases\": {\n        \"new_moon\": {\n          \"last\": {\n            \"timestamp\": 1766024400,\n            \"datestamp\": \"Wed, 07 Jan 2026 00:00:00 +0000\",\n            \"days_ago\": 6\n          },\n          \"next\": {\n            \"timestamp\": 1768732800,\n            \"datestamp\": \"Fri, 06 Feb 2026 00:00:00 +0000\",\n            \"days_ahead\": 24\n          }\n        }\n      },\n      \"illumination_details\": {\n        \"percentage\": 22.49,\n        \"visible_fraction\": 0.2249,\n        \"phase_angle\": 123.39\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c3a3613-1dd8-4272-b287-7bf86b2afe91",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advanced"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "51.5074"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "-0.1278"
+                    },
+                    {
+                      "key": "timestamp",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5d2022a0-d77a-4bec-b606-b656f5215441",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advanced"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "51.5074"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "-0.1278"
+                    },
+                    {
+                      "key": "timestamp",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://moon-phase.p.rapidapi.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-rapidapi-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "692ed8b9-0908-4de1-aaae-fc497f6a210b",
+    "name": "Moon-API.com Advanced API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving detailed moon phase data, sun data, calendars, and astronomical information\n\nContact Support:\n Name: Moon-API.com",
+      "type": "text/plain"
+    }
+  }
+}
