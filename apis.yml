@@ -152,6 +152,8 @@ apis:
   - type: Signup
     url: https://rapidapi.com/
 common:
+  - type: Website
+    url: https://www.moon-api.com/
   - type: AgenticAccess
     url: agentic-access/moon-api-agentic-access.yml
   - type: VulnerabilityDisclosure
