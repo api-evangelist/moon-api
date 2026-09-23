@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Moon-API.com Advanced Calendar API
+  title: Moon-API.com Calendar API
   description: API for retrieving detailed moon phase data, sun data, calendars, and astronomical information
   version: 2.0.0
   contact:
@@ -85,6 +85,8 @@ paths:
           description: Server error
       tags:
       - Calendar
+      operationId: getCalendar
+      x-operation-id-source: derived
 components:
   schemas:
     MoonSunResponse:
@@ -463,16 +465,6 @@ components:
                   type: string
                   example: eastern Asia, Australia, Pacific, Americas
   parameters:
-    longitudeParam:
-      name: lon
-      in: query
-      description: Longitude coordinate (-180 to 180). Optional, defaults to -0.1278 (London, UK - west is negative)
-      required: false
-      schema:
-        type: number
-        minimum: -180
-        maximum: 180
-        default: -0.1278
     latitudeParam:
       name: lat
       in: query
@@ -483,6 +475,16 @@ components:
         minimum: -90
         maximum: 90
         default: 51.5074
+    longitudeParam:
+      name: lon
+      in: query
+      description: Longitude coordinate (-180 to 180). Optional, defaults to -0.1278 (London, UK - west is negative)
+      required: false
+      schema:
+        type: number
+        minimum: -180
+        maximum: 180
+        default: -0.1278
   securitySchemes:
     RapidAPIKey:
       type: apiKey

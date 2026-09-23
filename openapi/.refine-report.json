@@ -1,13 +1,7 @@
 {
   "provider": "moon-api",
   "sources": [
-    "moon-api-advanced-api-openapi.yml",
-    "moon-api-astrology-api-openapi.yml",
-    "moon-api-basic-api-openapi.yml",
-    "moon-api-calendar-api-openapi.yml",
-    "moon-api-emoji-api-openapi.yml",
-    "moon-api-phase-api-openapi.yml",
-    "moon-api-plain-text-api-openapi.yml"
+    "_original/moon-api-openapi.yml"
   ],
   "outputs": [
     "moon-api-advanced-api-openapi.yml",
@@ -21,6 +15,32 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "moon-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "moon-api-openapi.yml: tagged paths GET /basic -> Basic",
+    "moon-api-openapi.yml: tagged paths GET /advanced -> Advanced",
+    "moon-api-openapi.yml: tagged paths GET /astrology -> Astrology",
+    "moon-api-openapi.yml: tagged paths GET /phase -> Phase",
+    "moon-api-openapi.yml: tagged paths GET /emoji -> Emoji",
+    "moon-api-openapi.yml: tagged paths GET /plain-text -> Plain Text",
+    "moon-api-openapi.yml: tagged paths GET /calendar -> Calendar",
+    "moon-api-openapi.yml: declared missing tag: Advanced",
+    "moon-api-openapi.yml: declared missing tag: Astrology",
+    "moon-api-openapi.yml: declared missing tag: Basic",
+    "moon-api-openapi.yml: declared missing tag: Calendar",
+    "moon-api-openapi.yml: declared missing tag: Emoji",
+    "moon-api-openapi.yml: declared missing tag: Phase",
+    "moon-api-openapi.yml: declared missing tag: Plain Text",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "moon-api-advanced-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "moon-api-astrology-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "moon-api-basic-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "moon-api-calendar-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "moon-api-emoji-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "moon-api-phase-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "moon-api-plain-text-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
