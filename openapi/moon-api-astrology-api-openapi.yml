@@ -238,6 +238,13 @@ paths:
       x-operation-id-source: derived
 components:
   parameters:
+    timestampParam:
+      name: timestamp
+      in: query
+      description: Unix timestamp (optional, defaults to current time)
+      required: false
+      schema:
+        type: integer
     latitudeParam:
       name: lat
       in: query
@@ -248,13 +255,6 @@ components:
         minimum: -90
         maximum: 90
         default: 51.5074
-    timestampParam:
-      name: timestamp
-      in: query
-      description: Unix timestamp (optional, defaults to current time)
-      required: false
-      schema:
-        type: integer
     longitudeParam:
       name: lon
       in: query
